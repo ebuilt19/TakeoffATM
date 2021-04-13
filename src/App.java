@@ -98,13 +98,15 @@ public class App {
                 break;
             case "deposit":
                 System.out.println("Enter Deposit amount");
+                // checks to see if has anything thats not a double
                 if (userInput.hasNextDouble()) {
+                    // if no random characters and is a double then
                     depositAmount = userInput.nextDouble(); // Read user input
                     if (depositAmount < 0) {
                         System.out.println("invalid amount starting over");
                         break;
                     } else {
-
+                        // if its a valid deposit amount add to user acount
                         atm.deposite(depositAmount);
                         atm.addTrans(atm.getDateAndTime() + " " + depositAmount + " "
                                 + String.format("%1$,.2f", atm.getBalance(user)));
