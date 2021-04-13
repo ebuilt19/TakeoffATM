@@ -53,7 +53,6 @@ public class ATM extends User {
         DateTimeFormatter currDateFormatedObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         // stores formatted day and time
         String currDate = currDateObj.format(currDateFormatedObj);
-
         return currDate;
     }
 
