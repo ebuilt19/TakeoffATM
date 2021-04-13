@@ -77,6 +77,7 @@ public class App {
                                         + String.format("%1$,.2f", atm.getBalance(user)));
                                 // overdraft fee applied;
                                 atm.withdraw(5);
+                                // add overdraft to transactionHistory
                                 atm.addTrans(
                                         atm.getDateAndTime() + " -5 " + String.format("%1$,.2f", atm.getBalance(user)));
 

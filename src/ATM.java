@@ -26,7 +26,7 @@ public class ATM extends User {
     }
 
     // returns a list of transactions
-    public List<String> getTransactionHistory(User user) {
+    List<String> getTransactionHistory(User user) {
         return user.transaction;
     }
 
@@ -55,7 +55,7 @@ public class ATM extends User {
         user.balance = amount;
     }
 
-    // gets date and time
+    // gets date and time and returns formated string
     public String getDateAndTime() {
         LocalDateTime currDateObj = LocalDateTime.now();
         DateTimeFormatter currDateFormatedObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
