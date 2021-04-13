@@ -121,9 +121,6 @@ public class App {
             case "balance":
                 System.out.println("Current balance:" + String.format("%1$,.2f", atm.getBalance(user)));
                 break;
-            case "atm":
-                System.out.println(machineMoney);
-                break;
             case "end":
                 input = "end";
                 break;

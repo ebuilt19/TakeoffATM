@@ -10,6 +10,7 @@ class User {
     };
 
     User(double balance, List<String> transactionHistory) {
+        // user initial balance and transaction history
         this.balance = balance;
         this.transaction = transactionHistory;
     }
@@ -62,5 +63,4 @@ public class ATM extends User {
         String currDate = currDateObj.format(currDateFormatedObj);
         return currDate;
     }
-
 }
