@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -10,6 +12,7 @@ public class App {
         String input;
         double depositAmount;
         int withdrawAmount;
+        int minAmount = Math.min(machineMoney, withdrawAmount);
 
         System.out.println("Enter transaction, the choices are,\ndeposit\nbalance\nhistory\nwithdraw\nend");
         Scanner userInput = new Scanner(System.in); // Create a Scanner object
@@ -25,11 +28,11 @@ public class App {
                     System.out.println("No history found");
                 else {
                     // could have used a queue
-                    Collections.reverse(atm.getTransactionHistory(user));
-                    for (String x : atm.getTransactionHistory(user)) {
-                        history += x + "\n";
-                    }
-                    System.out.println(history);
+                    // Collections.reverse(atm.getTransactionHistory(user));
+                    // for (String x : atm.getTransactionHistory(user)) {
+                    // history += x + "\n";
+                    // }
+                    System.out.println(atm.getTransactionHistory(user));
                 }
                 break;
             case "withdraw":
@@ -53,13 +56,16 @@ public class App {
                     if (withdrawAmount % 20 == 0) {
                         // if user has enough money
                         if (atm.getBalance(user) >= withdrawAmount && machineMoney != 0) {
-                            atm.withdraw(withdrawAmount);
-                            atm.addTrans(atm.getDateAndTime() + " -" + withdrawAmount + " "
+                            atm.withdraw(minAmount);
+                            machineMoney -= minAmount;
+                            atm.addTrans(atm.getDateAndTime() + " -" + minAmount + " "
                                     + String.format("%1$,.2f", atm.getBalance(user)));
 
                             System.out.println("Current balance:" + String.format("%1$,.2f", atm.getBalance(user)));
-                            System.out.println("Amount dispensed: $" + withdrawAmount + "\nCurrent balance:"
+                            System.out.println("Amount dispensed: $" + minAmount + "\nCurrent balance:"
                                     + String.format("%1$,.2f", atm.getBalance(user)));
+
+                            System.out.println("machine money: " + machineMoney);
                         }
 
                         else if (atm.getBalance(user) > 0 && atm.getBalance(user) < withdrawAmount) {
