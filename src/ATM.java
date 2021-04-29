@@ -19,6 +19,7 @@ class User {
 public class ATM extends User {
     User user;
     int machineBal;
+    Queue<String> q = new LinkedList<>();
 
     ATM(User user, int machineBal) {
         this.user = user;
@@ -26,13 +27,13 @@ public class ATM extends User {
     }
 
     // returns a list of transactions
-    List<String> getTransactionHistory(User user) {
-        return user.transaction;
+    Queue<String> getTransactionHistory(User user) {
+        return q;
     }
 
     // adds transaction to the transaction list
     public void addTrans(String transaction) {
-        user.transaction.add(transaction);
+        q.add(transaction);
     }
 
     // returns the users balance
