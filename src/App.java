@@ -11,7 +11,7 @@ public class App {
         double depositAmount;
         int withdrawAmount;
 
-        System.out.println("Enter transzaction, the choices are,\ndeposit\nbalance\nhistory\nwithdraw\nend");
+        System.out.println("Enter transaction, the choices are,\ndeposit\nbalance\nhistory\nwithdraw\nend");
         do {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Enter transaction");
